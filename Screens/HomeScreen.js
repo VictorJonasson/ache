@@ -1,12 +1,9 @@
-import React from 'react';
-import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
-import { AppNavigator } from "../Navigation/BottomTabsNavigation";
-export const HomeScreen = () => {
+import React from "react";
+import { BottomTabNavigator } from "../Navigation/BottomTabsNavigation";
 
-    const [selectedIndex, setSelectedIndex] = React.useState(0);
+export const DailyAcheScreen = () => {
 
     return (
-        <AppNavigator></AppNavigator>
-
+        <BottomTabNavigator/>
     );
 };
