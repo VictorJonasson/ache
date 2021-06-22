@@ -89,9 +89,10 @@ const SignupFormComponent = () => {
             }}>
                 <Button size={"small"} style={styles.loginButton}
                         onPress={console.log("Registrera")}>
-                    Registrera
+                    <Text  appearance='alternative'>
+                        Registrera
+                    </Text>
                 </Button>
-
             </Layout>
         </Layout>
     );

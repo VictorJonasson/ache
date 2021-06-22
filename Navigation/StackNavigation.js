@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LandingScreen from '../Screens/LandingScreen';
 import SignUpScreen from '../Screens/SignUpScreen';
+import DateSelectorScreen from "../Screens/DateSelectorScreen";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,18 @@ const StackNavigation = () => (
           headerTintColor: '#2E3A59',
         }}
       />
+        <Stack.Screen
+            name="DateSelectorScreen"
+            component={DateSelectorScreen}
+            options={{
+                headerShown: false,
+                title: '',
+                headerStyle: {
+                    backgroundColor: theme['color-primary-500'],
+                },
+                headerTintColor: '#2E3A59',
+            }}
+        />
     </Stack.Navigator>
   </NavigationContainer>
 );
