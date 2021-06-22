@@ -4,8 +4,7 @@ import {default as theme} from '../Assets/CustomTheme/custom-theme.json';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LandingScreen from '../Screens/LandingScreen';
-import SignUpScreen from '../Screens/SignUpScreen';
-import DateSelectorScreen from "../Screens/DateSelectorScreen";
+import { HomeScreen } from "../Screens/HomeScreen";
 
 const Stack = createStackNavigator();
 
@@ -23,21 +22,9 @@ const StackNavigation = () => (
           headerTintColor: '#2E3A59',
         }}
       />
-      <Stack.Screen
-        name="SignUpScreen"
-        component={SignUpScreen}
-        options={{
-          headerShown: true,
-          title: '',
-          headerStyle: {
-            backgroundColor: theme['color-primary-500'],
-          },
-          headerTintColor: '#2E3A59',
-        }}
-      />
         <Stack.Screen
-            name="DateSelectorScreen"
-            component={DateSelectorScreen}
+            name="HomeScreen"
+            component={HomeScreen}
             options={{
                 headerShown: false,
                 title: '',

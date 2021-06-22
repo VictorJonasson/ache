@@ -45,7 +45,7 @@ const LoginFormComponent = () => {
             />
 
             <Layout style={{flex: 0, width: '45%', justifyContent: 'center', alignItems: 'center'}}>
-                <Button size={'small'} style={styles.loginButton} onPress={() => navigation.navigate('DateSelectorScreen')}>
+                <Button size={'small'} style={styles.loginButton} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text  appearance='alternative'>
                         Logga in
                     </Text>

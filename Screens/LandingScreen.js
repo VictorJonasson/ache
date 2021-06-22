@@ -21,29 +21,26 @@ const LandingScreen = () => {
             justifyContent: "center",
             alignItems: "center",
         }}>
-
-
             {!accountExist ?
                 (<>
                         <LogoProviderComponent />
                         <LoginFormComponent />
-                <TouchableOpacity
-                    style={styles.signUp}
-                    onPress={() => setAccountExist(true)}
-                >
-                    <Text category="s2">Inget konto?</Text>
-                </TouchableOpacity></>
+                        <TouchableOpacity
+                            style={styles.signUp}
+                            onPress={() => setAccountExist(true)}
+                        >
+                            <Text category="s2">Inget konto?</Text>
+                        </TouchableOpacity></>
                 )
                 : (<>
                         <LogoProviderComponent />
                         <SignupFormComponent />
-                <TouchableOpacity
-                style={styles.signUp}
-                onPress={() => setAccountExist(false)}
-                >
-                <Text category="s2">Logga in</Text>
-
-                </TouchableOpacity></>
+                        <TouchableOpacity
+                            style={styles.signUp}
+                            onPress={() => setAccountExist(false)}
+                        >
+                            <Text category="s2">Logga in</Text>
+                        </TouchableOpacity></>
                 )
             }
 
