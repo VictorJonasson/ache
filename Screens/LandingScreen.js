@@ -24,7 +24,9 @@ const LandingScreen = () => {
 
 
             {!accountExist ?
-                (<><LoginFormComponent />
+                (<>
+                        <LogoProviderComponent />
+                        <LoginFormComponent />
                 <TouchableOpacity
                     style={styles.signUp}
                     onPress={() => setAccountExist(true)}
@@ -32,12 +34,15 @@ const LandingScreen = () => {
                     <Text category="s2">Inget konto?</Text>
                 </TouchableOpacity></>
                 )
-                : (<><SignupFormComponent />
+                : (<>
+                        <LogoProviderComponent />
+                        <SignupFormComponent />
                 <TouchableOpacity
                 style={styles.signUp}
-                onPress={() => setAccountExist(true)}
+                onPress={() => setAccountExist(false)}
                 >
-                <Text category="s2"></Text>
+                <Text category="s2">Logga in</Text>
+
                 </TouchableOpacity></>
                 )
             }

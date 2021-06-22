@@ -27,7 +27,6 @@ const LoginFormComponent = () => {
 
     return (
         <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <LogoProviderComponent />
             <Input
                 accessoryLeft={UserIcon}
                 style={styles.inputEmail}
@@ -48,7 +47,7 @@ const LoginFormComponent = () => {
             <Layout style={{flex: 0, width: '45%', justifyContent: 'center', alignItems: 'center'}}>
                 <Button size={'small'} style={styles.loginButton}
                         onPress={console.log("LOGIN")}>
-                    Login
+                    Logga in
                 </Button>
 
             </Layout>

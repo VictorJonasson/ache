@@ -27,7 +27,6 @@ const SignupFormComponent = () => {
 
     return (
         <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <LogoProviderComponent />
             <Input
                 accessoryLeft={UserIcon}
                 style={styles.inputEmail}
