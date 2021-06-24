@@ -1,39 +1,60 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { BottomNavigation, BottomNavigationTab, Layout, Text } from '@ui-kitten/components';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { BottomNavigation, BottomNavigationTab, Layout, Text, Icon } from "@ui-kitten/components";
+import DailyAcheScreen from "../Screens/DailyAcheScreen";
+import ProfileScreen from "../Screens/ProfileScreen";
+import CalendarScreen from "../Screens/CalendarScreen";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+const {
+    Navigator,
+    Screen,
+} = createBottomTabNavigator();
 
-const UsersScreen = () => (
-    <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text category='h1'>USERS</Text>
-    </Layout>
+export const acheIcon = (props) => (
+    <Icon style={{
+        width: 22,
+        height: 22,
+        color: "rgba(77, 186, 249, 0.4)",
+    }} name="thumbs-down" pack="feather" />
 );
 
-const OrdersScreen = () => (
-    <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text category='h1'>ORDERS</Text>
-    </Layout>
+export const userIcon = (props) => (
+    <Icon style={{
+        width: 22,
+        height: 22,
+        color: "rgba(77, 186, 249, 0.4)",
+    }} name="user" pack="feather" />
 );
 
-const BottomTabBar = ({ navigation, state }) => (
+export const calendarIcon = (props) => (
+    <Icon style={{
+        width: 22,
+        height: 22,
+        color: "rgba(77, 186, 249, 0.4)",
+    }} name="calendar" pack="feather" />
+);
+
+const BottomTabBar = ({
+    navigation,
+    state,
+}) => (
     <BottomNavigation
         selectedIndex={state.index}
         onSelect={index => navigation.navigate(state.routeNames[index])}>
-        <BottomNavigationTab title='USERS'/>
-        <BottomNavigationTab title='ORDERS'/>
-        <BottomNavigationTab title='ORDERS'/>
+        <BottomNavigationTab title="" icon={acheIcon} />
+        <BottomNavigationTab title="" icon={userIcon} />
+        <BottomNavigationTab title="" icon={calendarIcon} />
     </BottomNavigation>
 );
 
 const TabNavigator = () => (
     <Navigator tabBar={props => <BottomTabBar {...props} />}>
-        <Screen name='Users' component={UsersScreen}/>
-        <Screen name='Orders' component={OrdersScreen}/>
+        <Screen name="DailyAcheScreen" component={DailyAcheScreen} />
+        <Screen name="ProfileScreen" component={ProfileScreen} />
+        <Screen name="CalendarScreen" component={CalendarScreen} />
     </Navigator>
 );
 
-export const AppNavigator = () => (
-        <TabNavigator/>
+export const BottomTabNavigator = () => (
+    <TabNavigator />
 );

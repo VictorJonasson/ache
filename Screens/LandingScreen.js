@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { Image, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet } from "react-native";
 import {
-    Button,
-    Input,
     Layout,
     Text,
-    Icon,
 } from "@ui-kitten/components";
 import LogoProviderComponent from "../Components/LogoProviderComponent";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
 import LoginFormComponent from "../Components/LoginComponents/LoginFormComponent";
 import SignupFormComponent from "../Components/LoginComponents/SignupFormComponent";
+import { Account } from "../Cognito/Accounts";
 
 const LandingScreen = () => {
     const [accountExist, setAccountExist] = useState(false);
@@ -22,7 +19,7 @@ const LandingScreen = () => {
             alignItems: "center",
         }}>
             {!accountExist ?
-                (<>
+                (<Account>
                         <LogoProviderComponent />
                         <LoginFormComponent />
                         <TouchableOpacity
@@ -30,9 +27,10 @@ const LandingScreen = () => {
                             onPress={() => setAccountExist(true)}
                         >
                             <Text category="s2">Inget konto?</Text>
-                        </TouchableOpacity></>
+                        </TouchableOpacity>
+                    </Account>
                 )
-                : (<>
+                : (<Account>
                         <LogoProviderComponent />
                         <SignupFormComponent />
                         <TouchableOpacity
@@ -40,10 +38,10 @@ const LandingScreen = () => {
                             onPress={() => setAccountExist(false)}
                         >
                             <Text category="s2">Logga in</Text>
-                        </TouchableOpacity></>
+                        </TouchableOpacity>
+                    </Account>
                 )
             }
-
         </Layout>
     );
 };

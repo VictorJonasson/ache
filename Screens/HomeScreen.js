@@ -1,7 +1,7 @@
 import React from "react";
 import { BottomTabNavigator } from "../Navigation/BottomTabsNavigation";
 
-export const DailyAcheScreen = () => {
+export const HomeScreen = () => {
 
     return (
         <BottomTabNavigator/>

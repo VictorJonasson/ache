@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import {
     Button,
     Input,
@@ -7,8 +7,9 @@ import {
     Text,
     Icon,
 } from "@ui-kitten/components";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs();
+import UserPool from "../../Cognito/UserPool";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 
 export const FacebookIcon = (props) => (
@@ -27,35 +28,37 @@ const AlertIcon = (props) => (
     <Icon {...props} style={{
         width: 22,
         height: 22,
-    }} name="alert-circle-outline" />
+    }} name="alert-octagon" />
 );
+const renderCaption = () => {
+    return (
+        <View style={styles.captionContainer}>
+            {AlertIcon(styles.captionIcon)}
+            <Text style={styles.captionText}>Måste bestå av minst 8 tecken</Text>
+        </View>
+    );
+};
 
 const SignupFormComponent = () => {
+    const [secureTextEntry, setSecureTextEntry] = useState(true);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const [value, setValue] = React.useState("");
-    const [secureTextEntry, setSecureTextEntry] = React.useState(true);
-    const navigation = useNavigation();
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-
+    const onSubmit = () => {
+        UserPool.signUp(email, password, [], null, (err, data) => {
+            if (err) console.error(err);
+            console.log(data);
+        });
+    };
     const toggleSecureEntry = () => {
         setSecureTextEntry(!secureTextEntry);
     };
-
     const renderIcon = (props) => (
         <TouchableWithoutFeedback onPress={toggleSecureEntry}>
             <Icon {...props} name={secureTextEntry ? "eye-off" : "eye"} />
         </TouchableWithoutFeedback>
-    );
 
-    const renderCaption = () => {
-        return (
-            <View style={styles.captionContainer}>
-                {AlertIcon(styles.captionIcon)}
-                <Text style={styles.captionText}>Måste bestå av minst 8 tecken</Text>
-            </View>
-        );
-    };
+    );
 
     return (
         <Layout style={{
@@ -68,7 +71,8 @@ const SignupFormComponent = () => {
                 style={styles.inputEmail}
                 value={email}
                 label="Email"
-                onChangeText={(nextValue) => setEmail(nextValue)}
+                onChangeText={(nextValue) => setEmail(nextValue)
+                }
             />
             <Input
                 value={password}
@@ -88,8 +92,8 @@ const SignupFormComponent = () => {
                 alignItems: "center",
             }}>
                 <Button size={"small"} style={styles.loginButton}
-                        onPress={console.log("Registrera")}>
-                    <Text  appearance='alternative'>
+                        onPress={() => onSubmit()}>
+                    <Text appearance="alternative">
                         Registrera
                     </Text>
                 </Button>
