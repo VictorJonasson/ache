@@ -5,6 +5,7 @@ import Pool from "./UserPool";
 const AccountContext = createContext();
 
 const Account = props => {
+    console.log("bajs")
     const authenticate = async (Username, Password) =>
         await new Promise((resolve, reject) => {
             const user = new CognitoUser({
