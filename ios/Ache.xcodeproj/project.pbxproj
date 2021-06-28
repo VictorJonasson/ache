@@ -28,6 +28,8 @@
 		69EB26E921984AFD818A22BA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF6118EA38384A2DAC498A2F /* Octicons.ttf */; };
 		A1D224594EA240E5B1C716A7 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 361742C24D08462AAC2458AF /* SimpleLineIcons.ttf */; };
 		407051378B0148008595F065 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 785F5CE8EB6842C69DE4E438 /* Zocial.ttf */; };
+		D4AFAD56D9E0458FAB909BB9 /* AdventPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79750BFF085430AACD5A695 /* AdventPro-Light.ttf */; };
+		6B301CEE99C94E8292B2A90F /* AdventPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7A4B55F35DE4168A0AA5A9A /* AdventPro-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		CF6118EA38384A2DAC498A2F /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		361742C24D08462AAC2458AF /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		785F5CE8EB6842C69DE4E438 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B79750BFF085430AACD5A695 /* AdventPro-Light.ttf */ = {isa = PBXFileReference; name = "AdventPro-Light.ttf"; path = "../Assets/Fonts/AdventPro-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D7A4B55F35DE4168A0AA5A9A /* AdventPro-Regular.ttf */ = {isa = PBXFileReference; name = "AdventPro-Regular.ttf"; path = "../Assets/Fonts/AdventPro-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				CF6118EA38384A2DAC498A2F /* Octicons.ttf */,
 				361742C24D08462AAC2458AF /* SimpleLineIcons.ttf */,
 				785F5CE8EB6842C69DE4E438 /* Zocial.ttf */,
+				B79750BFF085430AACD5A695 /* AdventPro-Light.ttf */,
+				D7A4B55F35DE4168A0AA5A9A /* AdventPro-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +293,8 @@
 				69EB26E921984AFD818A22BA /* Octicons.ttf in Resources */,
 				A1D224594EA240E5B1C716A7 /* SimpleLineIcons.ttf in Resources */,
 				407051378B0148008595F065 /* Zocial.ttf in Resources */,
+				D4AFAD56D9E0458FAB909BB9 /* AdventPro-Light.ttf in Resources */,
+				6B301CEE99C94E8292B2A90F /* AdventPro-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

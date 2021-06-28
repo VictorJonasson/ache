@@ -3,19 +3,9 @@ import { AccountContext } from "../../Cognito/Accounts";
 import { StyleSheet } from "react-native";
 import { Button, Input, Layout, Text, Icon } from "@ui-kitten/components";
 import { useNavigation } from '@react-navigation/native';
+import { LoginUserIcon,LoginKeyIcon } from "../IconHelper/IconProvider";
 
-export const FacebookIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-    }} name="key" pack="feather" />
-);
-export const UserIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-    }} name="user" pack="feather" />
-);
+
 
 export default () => {
     const navigation = useNavigation();
@@ -41,7 +31,7 @@ export default () => {
             alignItems: "center",
         }}>
             <Input
-                accessoryLeft={UserIcon}
+                accessoryLeft={LoginUserIcon}
                 style={styles.inputEmail}
                 value={email}
                 label="Email"
@@ -49,10 +39,10 @@ export default () => {
             />
 
             <Input
-                accessoryLeft={FacebookIcon}
+                accessoryLeft={LoginKeyIcon}
                 style={styles.inputPassword}
                 value={password}
-                label="Password"
+                label="Lösenord"
                 secureTextEntry={true}
                 onChangeText={(nextValue) => setPassword(nextValue)}
             />
@@ -67,6 +57,12 @@ export default () => {
                         onPress={() => onSubmit()}>
                     <Text appearance="alternative">
                         Logga in
+                    </Text>
+                </Button>
+                <Button size={"small"} style={styles.loginButton}
+                        onPress={()=>navigation.navigate('HomeScreen')}>
+                    <Text appearance="alternative">
+                       Bypass
                     </Text>
                 </Button>
 

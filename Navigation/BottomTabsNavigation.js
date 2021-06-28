@@ -4,35 +4,12 @@ import { BottomNavigation, BottomNavigationTab, Layout, Text, Icon } from "@ui-k
 import DailyAcheScreen from "../Screens/DailyAcheScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import CalendarScreen from "../Screens/CalendarScreen";
+import {BottomTabCalendarIcon,BottomTabAcheIcon,BottomTabUserIcon } from "../Components/IconHelper/IconProvider";
 
 const {
     Navigator,
     Screen,
 } = createBottomTabNavigator();
-
-export const acheIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-        color: "rgba(77, 186, 249, 0.4)",
-    }} name="thumbs-down" pack="feather" />
-);
-
-export const userIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-        color: "rgba(77, 186, 249, 0.4)",
-    }} name="user" pack="feather" />
-);
-
-export const calendarIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-        color: "rgba(77, 186, 249, 0.4)",
-    }} name="calendar" pack="feather" />
-);
 
 const BottomTabBar = ({
     navigation,
@@ -41,9 +18,9 @@ const BottomTabBar = ({
     <BottomNavigation
         selectedIndex={state.index}
         onSelect={index => navigation.navigate(state.routeNames[index])}>
-        <BottomNavigationTab title="" icon={acheIcon} />
-        <BottomNavigationTab title="" icon={userIcon} />
-        <BottomNavigationTab title="" icon={calendarIcon} />
+        <BottomNavigationTab title="" icon={BottomTabAcheIcon} />
+        <BottomNavigationTab title="" icon={BottomTabUserIcon} />
+        <BottomNavigationTab title="" icon={BottomTabCalendarIcon} />
     </BottomNavigation>
 );
 

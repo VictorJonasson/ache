@@ -5,14 +5,22 @@ import {
 import React from "react";
 import DateSelectorComponent from "../Components/HomeComponents/DateSelectorComponent";
 import UserPool from "../Cognito/UserPool";
+import { AcheSlider } from "../Components/HomeComponents/AcheSlider";
 
 const DailyAcheScreen = () => (
     <Layout style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
     }}>
-        <DateSelectorComponent />
+        <AcheSlider />
+        <Layout style={{
+            flex: 0,
+            height:250,
+            marginTop:50,
+            justifyContent: "center",
+            alignItems: "center",
+        }}>
+            <DateSelectorComponent />
+        </Layout>
     </Layout>
 );
 

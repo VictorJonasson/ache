@@ -54,6 +54,9 @@ const styles = StyleSheet.create({
     signUp: {
         marginTop: "20%",
     },
+    bypass: {
+        marginTop: "10%",
+    },
     inputPassword: {
         width: "80%",
         marginTop: 20,

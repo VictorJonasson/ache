@@ -11,29 +11,12 @@ import { LogBox } from "react-native";
 LogBox.ignoreAllLogs();
 import UserPool from "../../Cognito/UserPool";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
+import{LoginUserIcon,LoginKeyIcon,AlertIcon} from "../IconHelper/IconProvider";
 
-export const FacebookIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-    }} name="key" pack="feather" />
-);
-export const UserIcon = (props) => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-    }} name="user" pack="feather" />
-);
-const AlertIcon = (props) => (
-    <Icon {...props} style={{
-        width: 22,
-        height: 22,
-    }} name="alert-octagon" />
-);
 const renderCaption = () => {
     return (
         <View style={styles.captionContainer}>
-            {AlertIcon(styles.captionIcon)}
+            <AlertIcon/>
             <Text style={styles.captionText}>Måste bestå av minst 8 tecken</Text>
         </View>
     );
@@ -67,7 +50,7 @@ const SignupFormComponent = () => {
             alignItems: "center",
         }}>
             <Input
-                accessoryLeft={UserIcon}
+                accessoryLeft={LoginUserIcon}
                 style={styles.inputEmail}
                 value={email}
                 label="Email"
@@ -76,10 +59,10 @@ const SignupFormComponent = () => {
             />
             <Input
                 value={password}
-                label="Password"
+                label="Lösenord"
                 style={styles.inputPassword}
                 caption={renderCaption}
-                accessoryLeft={FacebookIcon}
+                accessoryLeft={LoginKeyIcon}
                 accessoryRight={renderIcon}
                 secureTextEntry={secureTextEntry}
                 onChangeText={(nextValue) => setPassword(nextValue)}
@@ -122,6 +105,7 @@ const styles = StyleSheet.create({
         color: "#8F9BB3",
     },
     captionContainer: {
+        marginTop:6,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
