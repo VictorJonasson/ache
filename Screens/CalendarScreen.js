@@ -2,7 +2,6 @@ import {
     Layout, Text,
 } from "@ui-kitten/components";
 import React from "react";
-import DateSelectorComponent from "../Components/HomeComponents/DateSelectorComponent";
 
 const CalendarScreen = () => (
     <Layout style={{

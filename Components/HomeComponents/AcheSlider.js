@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Image, StyleSheet, Switch, TouchableOpacity } from "react-native";
-import { Divider, Layout, Text, ViewPager } from "@ui-kitten/components";
+import { Image, StyleSheet} from "react-native";
+import { Layout, Text, ViewPager } from "@ui-kitten/components";
 import anxiety from "../../Assets/Images/Aches/anxiety1.png";
 import backPain from "../../Assets/Images/Aches/backPain1.png";
 import migraine from "../../Assets/Images/Aches/migraine4.png";
@@ -43,85 +43,102 @@ export const AcheSlider = () => {
                 }
             >
                 <Layout
-                    style={styles.tab}
+                    style={styles.acheSlideIcon}
                     level="2">
-                    <TouchableOpacity
-                        onPress={() => console.log("Migrän")}
-                    >
-                        <Image
-                            style={styles.acheIcon}
-                            source={migraine}
-                        />
-                    </TouchableOpacity>
-                    {/*<Text category="s2" appearance="hint" status="primary"*/}
-                    {/*      style={{ marginTop: 1 }}>Migrän</Text>*/}
+                    <Image
+                        style={styles.acheIcon}
+                        source={migraine}
+                    />
                 </Layout>
                 <Layout
-                    style={styles.tab}
+                    style={styles.acheSlideIcon}
                     level="2">
-                    <TouchableOpacity
-                        onPress={() => console.log("Huvudvärk")}
-                    >
-                        <Image
-                            style={styles.acheIcon}
-                            source={headache}
-                        />
-                    </TouchableOpacity>
-                    {/*<Text category="s2" appearance="hint" status="primary"*/}
-                    {/*      style={{ marginTop: 1 }}>Huvudvärk</Text>*/}
+                    <Image
+                        style={styles.acheIcon}
+                        source={headache}
+                    />
                 </Layout>
                 <Layout
-                    style={styles.tab}
+                    style={styles.acheSlideIcon}
                     level="2">
-                    <TouchableOpacity
-                        onPress={() => console.log("Yrsel")}
-                    >
-                        <Image
-                            style={styles.acheIcon}
-                            source={dizziness}
-                        />
-                    </TouchableOpacity>
-                    {/*<Text category="s2" appearance="hint" status="primary"*/}
-                    {/*      style={{ marginTop: 1 }}>Yrsel</Text>*/}
+                    <Image
+                        style={styles.acheIcon}
+                        source={dizziness}
+                    />
                 </Layout>
                 <Layout
-                    style={styles.tab}
+                    style={styles.acheSlideIcon}
                     level="2">
-                    <TouchableOpacity
-                        onPress={() => console.log("Ångest")}
-                    >
-                        <Image
-                            style={styles.acheIcon}
-                            source={anxiety}
-                        />
-                    </TouchableOpacity>
-                    {/*<Text category="s2" appearance="hint" status="primary"*/}
-                    {/*      style={{ marginTop: 1 }}>Ångest</Text>*/}
+                    <Image
+                        style={styles.acheIcon}
+                        source={anxiety}
+                    />
                 </Layout>
                 <Layout
-                    style={styles.tab}
+                    style={styles.acheSlideIcon}
                     level="2">
-                    <TouchableOpacity
-                        onPress={() => console.log("Ryggont")}
-                    >
-                        <Image
-                            style={styles.acheIcon}
-                            source={backPain}
-                        />
-                    </TouchableOpacity>
-                    {/*<Text category="s2" appearance="hint" status="primary"*/}
-                    {/*      style={{ marginTop: 1 }}>Ryggont</Text>*/}
+                    <Image
+                        style={styles.acheIcon}
+                        source={backPain}
+                    />
                 </Layout>
             </ViewPager>
-            <Text category={"h2"} appearance="hint" status="primary"
-                  style={styles.acheText}>{selectedAche}</Text>
+            <ViewPager
+                selectedIndex={selectedIndex}
+                onSelect={
+                    index => setSelectedIndex(index)
+                }
+            >
+                <Layout
+                    style={styles.acheSlideText}
+                    level="1">
+                    <Text category={"h2"} appearance="hint" status="primary"
+                          style={styles.acheText}>{selectedAche}
+                    </Text>
+                </Layout>
+                <Layout
+                    style={styles.acheSlideText}
+                    level="1">
+                    <Text category={"h2"} appearance="hint" status="primary"
+                          style={styles.acheText}>{selectedAche}
+                    </Text>
+                </Layout>
+                <Layout
+                    style={styles.acheSlideText}
+                    level="1">
+                    <Text category={"h2"} appearance="hint" status="primary"
+                          style={styles.acheText}>{selectedAche}
+                    </Text>
+                </Layout>
+                <Layout
+                    style={styles.acheSlideText}
+                    level="1">
+                    <Text category={"h2"} appearance="hint" status="primary"
+                          style={styles.acheText}>{selectedAche}
+                    </Text>
+                </Layout>
+                <Layout
+                    style={styles.acheSlideText}
+                    level="1">
+                    <Text category={"h2"} appearance="hint" status="primary"
+                          style={styles.acheText}>{selectedAche}
+                    </Text>
+                </Layout>
+            </ViewPager>
+
         </>
     );
 };
 
 const styles = StyleSheet.create({
-    tab: {
+    acheSlideIcon: {
+        elevation: 5,
         marginTop: "13%",
+        height: 130,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    acheSlideText: {
         height: 130,
         alignItems: "center",
         justifyContent: "center",
@@ -129,12 +146,13 @@ const styles = StyleSheet.create({
     acheIcon: {
         width: 110,
         height: 110,
+        elevation: 5,
     },
     acheText: {
         fontFamily: "AdventPro-Regular",
         fontSize: 65,
         alignSelf: "center",
         marginTop: 20,
-
+        elevation: 5,
     },
 });

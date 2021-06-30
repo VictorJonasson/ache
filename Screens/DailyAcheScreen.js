@@ -1,10 +1,8 @@
 import {
-    Button,
-    Layout, Text,
+    Layout,
 } from "@ui-kitten/components";
 import React from "react";
 import DateSelectorComponent from "../Components/HomeComponents/DateSelectorComponent";
-import UserPool from "../Cognito/UserPool";
 import { AcheSlider } from "../Components/HomeComponents/AcheSlider";
 
 const DailyAcheScreen = () => (

@@ -8,15 +8,16 @@ import {
     Icon,
 } from "@ui-kitten/components";
 import { LogBox } from "react-native";
+
 LogBox.ignoreAllLogs();
 import UserPool from "../../Cognito/UserPool";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
-import{LoginUserIcon,LoginKeyIcon,AlertIcon} from "../IconHelper/IconProvider";
+import { LoginUserIcon, LoginKeyIcon, AlertIcon } from "../IconHelper/IconProvider";
 
 const renderCaption = () => {
     return (
         <View style={styles.captionContainer}>
-            <AlertIcon/>
+            <AlertIcon />
             <Text style={styles.captionText}>Måste bestå av minst 8 tecken</Text>
         </View>
     );
@@ -60,6 +61,15 @@ const SignupFormComponent = () => {
             <Input
                 value={password}
                 label="Lösenord"
+                style={styles.inputPassword}
+                accessoryLeft={LoginKeyIcon}
+                accessoryRight={renderIcon}
+                secureTextEntry={secureTextEntry}
+                onChangeText={(nextValue) => setPassword(nextValue)}
+            />
+            <Input
+                value={password}
+                label="Upprepa Lösenord"
                 style={styles.inputPassword}
                 caption={renderCaption}
                 accessoryLeft={LoginKeyIcon}
@@ -105,7 +115,7 @@ const styles = StyleSheet.create({
         color: "#8F9BB3",
     },
     captionContainer: {
-        marginTop:6,
+        marginTop: 6,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",

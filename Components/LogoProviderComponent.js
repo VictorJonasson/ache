@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import one from "../Assets/Images/Logotype/bodo.png";

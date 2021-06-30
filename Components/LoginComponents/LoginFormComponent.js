@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AccountContext } from "../../Cognito/Accounts";
 import { StyleSheet } from "react-native";
-import { Button, Input, Layout, Text, Icon } from "@ui-kitten/components";
+import { Button, Input, Layout, Text} from "@ui-kitten/components";
 import { useNavigation } from '@react-navigation/native';
 import { LoginUserIcon,LoginKeyIcon } from "../IconHelper/IconProvider";
 

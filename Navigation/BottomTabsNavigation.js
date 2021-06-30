@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { BottomNavigation, BottomNavigationTab, Layout, Text, Icon } from "@ui-kitten/components";
+import { BottomNavigation, BottomNavigationTab} from "@ui-kitten/components";
 import DailyAcheScreen from "../Screens/DailyAcheScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import CalendarScreen from "../Screens/CalendarScreen";
