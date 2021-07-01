@@ -8,25 +8,26 @@ import {
     Icon,
 } from "@ui-kitten/components";
 import { LogBox } from "react-native";
-
-LogBox.ignoreAllLogs();
 import UserPool from "../../Cognito/UserPool";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 import { LoginUserIcon, LoginKeyIcon, AlertIcon } from "../IconHelper/IconProvider";
 
-const renderCaption = () => {
-    return (
-        <View style={styles.captionContainer}>
-            <AlertIcon />
-            <Text style={styles.captionText}>Måste bestå av minst 8 tecken</Text>
-        </View>
-    );
-};
-
 const SignupFormComponent = () => {
+
     const [secureTextEntry, setSecureTextEntry] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [password1, setPassword1] = useState("");
+    const [passwordMessage, setPasswordMessage] = useState("Måste bestå av minst 8 tecken");
+
+    const renderCaption = () => {
+        return (
+            <View style={styles.captionContainer}>
+                <AlertIcon />
+                <Text style={styles.captionText}>{passwordMessage}</Text>
+            </View>
+        );
+    };
 
     const onSubmit = () => {
         UserPool.signUp(email, password, [], null, (err, data) => {
@@ -41,8 +42,30 @@ const SignupFormComponent = () => {
         <TouchableWithoutFeedback onPress={toggleSecureEntry}>
             <Icon {...props} name={secureTextEntry ? "eye-off" : "eye"} />
         </TouchableWithoutFeedback>
-
     );
+
+    function validatePassword() {
+        if (!password.localeCompare(password1)) {
+            if (password.match(/\W/)) {
+                if (password.length >= 8) {
+                    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+                        console.log("innehåller");
+                        onSubmit();
+                    } else {
+                        console.log("innehåller inte");
+                        setPasswordMessage("Måste bestå av minst 1 stor bokstav");
+                    }
+                } else {
+                    setPasswordMessage("Måste bestå av minst 8 tecken");
+                }
+            } else {
+                setPasswordMessage("Lösenord måste innehålla ett specialtecken");
+            }
+        } else {
+            console.log("matchar inte");
+            setPasswordMessage("Lösenorden stämmer ej överens");
+        }
+    }
 
     return (
         <Layout style={{
@@ -59,6 +82,7 @@ const SignupFormComponent = () => {
                 }
             />
             <Input
+                size={"small"}
                 value={password}
                 label="Lösenord"
                 style={styles.inputPassword}
@@ -68,16 +92,16 @@ const SignupFormComponent = () => {
                 onChangeText={(nextValue) => setPassword(nextValue)}
             />
             <Input
-                value={password}
+                size={"small"}
+                caption={renderCaption}
+                value={password1}
                 label="Upprepa Lösenord"
                 style={styles.inputPassword}
-                caption={renderCaption}
                 accessoryLeft={LoginKeyIcon}
                 accessoryRight={renderIcon}
                 secureTextEntry={secureTextEntry}
-                onChangeText={(nextValue) => setPassword(nextValue)}
+                onChangeText={(nextValue) => setPassword1(nextValue)}
             />
-
             <Layout style={{
                 flex: 0,
                 width: "45%",
@@ -85,8 +109,10 @@ const SignupFormComponent = () => {
                 alignItems: "center",
             }}>
                 <Button size={"small"} style={styles.loginButton}
-                        onPress={() => onSubmit()}>
-                    <Text appearance="alternative">
+                        onPress={() => validatePassword()}>
+                    <Text category={"h5"} style={{
+                        fontFamily: "AdventPro-Regular",
+                    }} appearance="alternative">
                         Registrera
                     </Text>
                 </Button>
@@ -99,20 +125,21 @@ const styles = StyleSheet.create({
     inputEmail: {
         width: "80%",
         marginTop: "30%",
-
+        elevation: 3,
     },
     signUp: {
         marginTop: "20%",
-
     },
     inputPassword: {
         width: "80%",
         marginTop: 20,
         color: "red",
+        elevation: 3,
     },
     loginButton: {
         marginTop: "20%",
         color: "#8F9BB3",
+        elevation: 3,
     },
     captionContainer: {
         marginTop: 6,

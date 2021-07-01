@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AccountContext } from "../../Cognito/Accounts";
 import { StyleSheet } from "react-native";
-import { Button, Input, Layout, Text} from "@ui-kitten/components";
-import { useNavigation } from '@react-navigation/native';
-import { LoginUserIcon,LoginKeyIcon } from "../IconHelper/IconProvider";
-
-
+import { Button, Input, Layout, Text } from "@ui-kitten/components";
+import { useNavigation } from "@react-navigation/native";
+import { LoginUserIcon, LoginKeyIcon } from "../IconHelper/IconProvider";
 
 export default () => {
     const navigation = useNavigation();
@@ -17,7 +15,7 @@ export default () => {
         authenticate(email, password)
             .then(data => {
                 console.log("logged in", data);
-                navigation.navigate('HomeScreen')
+                navigation.navigate("HomeScreen");
             })
             .catch(err => {
                 console.log("Failed to login", err);
@@ -55,14 +53,15 @@ export default () => {
             }}>
                 <Button size={"small"} style={styles.loginButton}
                         onPress={() => onSubmit()}>
-                    <Text appearance="alternative">
+                    <Text style={{elevation:5, fontFamily: "AdventPro-Regular" }} category={"h5"}
+                          appearance="alternative">
                         Logga in
                     </Text>
                 </Button>
                 <Button size={"small"} style={styles.loginButton}
-                        onPress={()=>navigation.navigate('HomeScreen')}>
+                        onPress={() => navigation.navigate("HomeScreen")}>
                     <Text appearance="alternative">
-                       Bypass
+                        Bypass
                     </Text>
                 </Button>
 
@@ -75,6 +74,7 @@ const styles = StyleSheet.create({
     inputEmail: {
         width: "80%",
         marginTop: "30%",
+        elevation:3
     },
     signUp: {
         marginTop: "20%",
@@ -82,9 +82,11 @@ const styles = StyleSheet.create({
     inputPassword: {
         width: "80%",
         marginTop: 20,
+        elevation:3
     },
     loginButton: {
         marginTop: "20%",
+        elevation:3
     },
 });
 

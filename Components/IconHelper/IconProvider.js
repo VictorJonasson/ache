@@ -1,12 +1,13 @@
 import React from "react";
-import { Icon } from "@ui-kitten/components";
+import { Icon, useTheme } from "@ui-kitten/components";
 
-export const LoginKeyIcon = () => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-    }} name="key" pack="feather" />
-);
+export function LoginKeyIcon() {
+    return (<Icon style={{
+            width: 22,
+            height: 22,
+        }} name="key" pack="feather" animation="pulse" />
+    );
+};
 
 export const LoginUserIcon = () => (
     <Icon style={{
@@ -38,10 +39,16 @@ export const BottomTabCalendarIcon = () => (
         color: "rgba(77, 186, 249, 0.4)",
     }} name="calendar" pack="feather" />
 );
-export const AlertIcon = () => (
-    <Icon style={{
-        width: 22,
-        height: 22,
-        marginRight:5,
-    }} name="alert-octagon" pack="feather"  />
-);
+
+export function AlertIcon() {
+    const theme = useTheme();
+    return (
+        <Icon style={{
+            width: 22,
+            height: 22,
+            marginRight: 5,
+            color: theme["color-warning-600"],
+            elevation:3
+        }} name="alert-octagon" pack="feather" />
+    );
+};
