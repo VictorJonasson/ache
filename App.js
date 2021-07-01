@@ -1,9 +1,9 @@
 import React from "react";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
-import { default as theme } from "../Ache/Assets/CustomTheme/custom-theme.json";
-import StackNavigation from "./Navigation/StackNavigation";
-import { FeatherIconsPack } from "./Components/IconHelper/feather-icons";
+import { default as theme } from "./src/Assets/CustomTheme/custom-theme.json";
+import StackNavigation from "./src/Navigation/StackNavigation";
+import { FeatherIconsPack } from "./src/Components/IconHelper/feather-icons";
 
 const Ache = () => (
     <>
