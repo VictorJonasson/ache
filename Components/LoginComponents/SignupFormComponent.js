@@ -19,12 +19,21 @@ const SignupFormComponent = () => {
     const [password, setPassword] = useState("");
     const [password1, setPassword1] = useState("");
     const [passwordMessage, setPasswordMessage] = useState("Måste bestå av minst 8 tecken");
+    const [emailMessage, setEmailMessage] = useState();
 
     const renderCaption = () => {
         return (
             <View style={styles.captionContainer}>
                 <AlertIcon />
                 <Text style={styles.captionText}>{passwordMessage}</Text>
+            </View>
+        );
+    };
+    const renderEmailCaption = () => {
+        return (
+            <View style={styles.captionContainer}>
+                {emailMessage ? <AlertIcon /> : null}
+                <Text style={styles.captionText}>{emailMessage}</Text>
             </View>
         );
     };
@@ -67,6 +76,17 @@ const SignupFormComponent = () => {
         }
     }
 
+    function ValidateEmail() {
+        const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (email.match(re)) {
+            console.log("email pass");
+
+        } else {
+            console.log("email dont pass");
+            setEmailMessage("Mailadressen är felformularead");
+        }
+    }
+
     return (
         <Layout style={{
             flex: 1,
@@ -78,6 +98,7 @@ const SignupFormComponent = () => {
                 style={styles.inputEmail}
                 value={email}
                 label="Email"
+                caption={renderEmailCaption}
                 onChangeText={(nextValue) => setEmail(nextValue)
                 }
             />
@@ -109,7 +130,9 @@ const SignupFormComponent = () => {
                 alignItems: "center",
             }}>
                 <Button size={"small"} style={styles.loginButton}
-                        onPress={() => validatePassword()}>
+                        onPress={() => {
+                            validatePassword(), ValidateEmail();
+                        }}>
                     <Text category={"h5"} style={{
                         fontFamily: "AdventPro-Regular",
                     }} appearance="alternative">
@@ -142,7 +165,7 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     captionContainer: {
-        marginTop: 6,
+        marginTop: 10,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
