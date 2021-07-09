@@ -7,7 +7,6 @@ import {
     Text,
     Icon,
 } from "@ui-kitten/components";
-import { LogBox } from "react-native";
 import UserPool from "../../Cognito/UserPool";
 import { TouchableWithoutFeedback } from "@ui-kitten/components/devsupport";
 import { LoginUserIcon, LoginKeyIcon, AlertIcon } from "../IconHelper/IconProvider";
@@ -53,13 +52,13 @@ const SignupFormComponent = () => {
         </TouchableWithoutFeedback>
     );
 
-    function validatePassword() {
+    function ValidatePassword() {
         if (!password.localeCompare(password1)) {
             if (password.match(/\W/)) {
                 if (password.length >= 8) {
                     if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
-                        console.log("innehåller");
-                        onSubmit();
+                        console.log("Lösen Godkänt");
+                        return true;
                     } else {
                         console.log("innehåller inte");
                         setPasswordMessage("Måste bestå av minst 1 stor bokstav");
@@ -77,10 +76,12 @@ const SignupFormComponent = () => {
     }
 
     function ValidateEmail() {
+        //DO NOT CHANGE THIS REGEX
         const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
         if (email.match(re)) {
             console.log("email pass");
-
+            setEmailMessage("")
         } else {
             console.log("email dont pass");
             setEmailMessage("Mailadressen är felformularead");
@@ -117,7 +118,7 @@ const SignupFormComponent = () => {
                 caption={renderCaption}
                 value={password1}
                 label="Upprepa Lösenord"
-                style={styles.inputPassword}
+                style={styles.repeatPassword}
                 accessoryLeft={LoginKeyIcon}
                 accessoryRight={renderIcon}
                 secureTextEntry={secureTextEntry}
@@ -129,9 +130,10 @@ const SignupFormComponent = () => {
                 justifyContent: "center",
                 alignItems: "center",
             }}>
-                <Button size={"small"} style={styles.loginButton}
+                <Button size={"small"} style={styles.registerButton}
                         onPress={() => {
-                            validatePassword(), ValidateEmail();
+                            ValidateEmail();
+                            ValidatePassword();
                         }}>
                     <Text category={"h5"} style={{
                         fontFamily: "AdventPro-Regular",
@@ -147,25 +149,24 @@ const SignupFormComponent = () => {
 const styles = StyleSheet.create({
     inputEmail: {
         width: "80%",
-        marginTop: "30%",
         elevation: 3,
-    },
-    signUp: {
-        marginTop: "20%",
     },
     inputPassword: {
         width: "80%",
-        marginTop: 20,
-        color: "red",
         elevation: 3,
     },
-    loginButton: {
-        marginTop: "20%",
+    repeatPassword: {
+        width: "80%",
+        elevation: 3,
+        marginTop:"2%"
+    },
+    registerButton: {
         color: "#8F9BB3",
         elevation: 3,
+        marginTop:"15%"
     },
     captionContainer: {
-        marginTop: 10,
+        marginTop: "5%",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",

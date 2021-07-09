@@ -1,20 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Image, StyleSheet } from "react-native";
-import { Layout, Text, ViewPager,useTheme } from "@ui-kitten/components";
+import { Layout, Text, ViewPager, useTheme } from "@ui-kitten/components";
 import anxiety from "../../Assets/Images/Aches/anxiety1.png";
 import backPain from "../../Assets/Images/Aches/backPain1.png";
 import migraine from "../../Assets/Images/Aches/migraine4.png";
 import headache from "../../Assets/Images/Aches/headache1.png";
 import dizziness from "../../Assets/Images/Aches/dizziness2.png";
-import Slider from "@react-native-community/slider";
 
+import Context from "../../store/context";
 
 export const AcheSlider = () => {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [selectedAche, setSelectedAche] = React.useState(0);
-    const [sliderValue, setSliderValue] = React.useState(0);
-    const theme = useTheme();
+    const store = useContext(Context);
 
     useEffect(() => {
         switch (selectedIndex) {
@@ -88,7 +87,6 @@ export const AcheSlider = () => {
                 </Layout>
             </ViewPager>
             <ViewPager
-                style={{padding:1,marginTop:0,}}
                 selectedIndex={selectedIndex}
                 onSelect={
                     index => setSelectedIndex(index)
@@ -130,24 +128,6 @@ export const AcheSlider = () => {
                     </Text>
                 </Layout>
             </ViewPager>
-
-            <Text status="primary" category={"h6"} appearance={"default"} style={{
-                alignSelf: "center",
-                fontFamily: "AdventPro-Regular",
-            }}>Intensitet</Text>
-            <Slider
-                maximumValue={10}
-                minimumValue={0}
-                minimumTrackTintColor={theme['color-primary-600']}
-                maximumTrackTintColor={theme['color-primary-500']}
-                step={1}
-                value={sliderValue}
-                onValueChange={(sliderValue) => setSliderValue(sliderValue)}
-            />
-            <Text status="primary" category={"h6"} appearance={"default"} style={{
-                alignSelf: "center",
-                fontFamily: "AdventPro-Regular",
-            }}>{sliderValue}</Text>
         </>
     );
 };
@@ -155,25 +135,24 @@ export const AcheSlider = () => {
 const styles = StyleSheet.create({
     acheSlideIcon: {
         elevation: 5,
-        marginTop: "13%",
+        marginTop: "10%",
         height: 130,
         alignItems: "center",
         justifyContent: "center",
     },
     acheSlideText: {
-        height: 130,
+        height: 100,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
     },
     acheIcon: {
-        width: 110,
-        height: 110,
+        width: "30%",
+        height: "80%",
     },
     acheText: {
         fontFamily: "AdventPro-Regular",
-        fontSize: 65,
+        fontSize: 45,
         alignSelf: "center",
-        marginTop: 20,
         elevation: 5,
     },
 });

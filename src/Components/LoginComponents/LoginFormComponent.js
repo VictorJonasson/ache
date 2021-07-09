@@ -50,21 +50,18 @@ export default () => {
                 width: "45%",
                 justifyContent: "center",
                 alignItems: "center",
+                marginTop:20
             }}>
                 <Button size={"small"} style={styles.loginButton}
                         onPress={() => onSubmit()}>
-                    <Text style={{elevation:5, fontFamily: "AdventPro-Regular" }} category={"h5"}
+                    <Text style={{
+                        elevation: 5,
+                        fontFamily: "AdventPro-Regular",
+                    }} category={"h5"}
                           appearance="alternative">
                         Logga in
                     </Text>
                 </Button>
-                <Button size={"small"} style={styles.loginButton}
-                        onPress={() => navigation.navigate("HomeScreen")}>
-                    <Text appearance="alternative">
-                        Bypass
-                    </Text>
-                </Button>
-
             </Layout>
         </Layout>
     );
@@ -73,8 +70,8 @@ export default () => {
 const styles = StyleSheet.create({
     inputEmail: {
         width: "80%",
-        marginTop: "30%",
-        elevation:3
+
+        elevation: 3,
     },
     signUp: {
         marginTop: "20%",
@@ -82,11 +79,17 @@ const styles = StyleSheet.create({
     inputPassword: {
         width: "80%",
         marginTop: 20,
-        elevation:3
+        elevation: 3,
     },
     loginButton: {
+        // marginTop: 20,
+        // marginBottom: "30%",
+        elevation: 3,
+    },
+    bypass: {
         marginTop: "20%",
-        elevation:3
+        marginBottom: "30%",
+        elevation: 3,
     },
 });
 

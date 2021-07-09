@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacityComponent } from "react-native";
 import {
     Layout,
     Text,
@@ -9,9 +9,11 @@ import LogoProviderComponent from "../Components/LogoProviderComponent";
 import LoginFormComponent from "../Components/LoginComponents/LoginFormComponent";
 import SignupFormComponent from "../Components/LoginComponents/SignupFormComponent";
 import { Account } from "../Cognito/Accounts";
+import { useNavigation } from "@react-navigation/native";
 
 const LandingScreen = () => {
     const [accountExist, setAccountExist] = useState(false);
+    const navigation = useNavigation();
     return (
         <Layout style={{
             flex: 1,
@@ -21,12 +23,17 @@ const LandingScreen = () => {
             {!accountExist ?
                 (<Account>
                         <LogoProviderComponent />
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("HomeScreen")}
+                        >
+                            <Text>Bypass Login</Text>
+                        </TouchableOpacity>
                         <LoginFormComponent />
                         <TouchableOpacity
                             style={styles.signUp}
                             onPress={() => setAccountExist(true)}
                         >
-                            <Text category="s2">Inget konto?</Text>
+                            <Text style={{ marginBottom: "1%" }} category="s2">Inget konto?</Text>
                         </TouchableOpacity>
                     </Account>
                 )
@@ -34,10 +41,9 @@ const LandingScreen = () => {
                         <LogoProviderComponent />
                         <SignupFormComponent />
                         <TouchableOpacity
-                            style={styles.signUp}
                             onPress={() => setAccountExist(false)}
                         >
-                            <Text category="s2">Logga in</Text>
+                            <Text style={{ marginBottom: "1%" }} category="s2">Logga in</Text>
                         </TouchableOpacity>
                     </Account>
                 )
@@ -47,20 +53,6 @@ const LandingScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    inputEmail: {
-        width: "80%",
-        marginTop: "30%",
-    },
-    signUp: {
-        marginTop: "20%",
-    },
-    bypass: {
-        marginTop: "10%",
-    },
-    inputPassword: {
-        width: "80%",
-        marginTop: 20,
-    },
     loginButton: {
         marginTop: "20%",
     },

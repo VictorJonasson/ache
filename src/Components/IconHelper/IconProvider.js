@@ -11,9 +11,23 @@ export function LoginKeyIcon() {
 
 export const LoginUserIcon = () => (
     <Icon style={{
-        width: 22,
-        height: 22,
+        width: 25,
+        height: 25,
     }} name="user" pack="feather" />
+);
+export const IconLeft = () => (
+    <Icon style={{
+        width: 25,
+        height: 25,
+        color: "rgba(77, 186, 249, 0.4)",
+    }} name="arrow-left" pack="feather" />
+);
+export const IconRight = () => (
+    <Icon style={{
+        width: 25,
+        height: 25,
+        color: "rgba(77, 186, 249, 0.4)",
+    }} name="arrow-right" pack="feather" />
 );
 
 export const BottomTabAcheIcon = () => (
