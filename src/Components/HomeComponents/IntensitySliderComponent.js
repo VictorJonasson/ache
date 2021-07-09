@@ -3,10 +3,10 @@ import React, { useContext, useEffect } from "react";
 import Slider from "@react-native-community/slider";
 import Context from "../../store/context";
 
-const IntensitySlider = () => {
+const IntensitySliderComponent = () => {
     const [acheIntensity, setAcheIntensity] = React.useState(0);
     const theme = useTheme();
-    const state = useContext(Context);
+    const store = useContext(Context);
     const {
         type,
         actions,
@@ -16,7 +16,7 @@ const IntensitySlider = () => {
         actions({
             type: "setState",
             payload: {
-                ...state,
+                ...store,
                 intensityLevel: acheIntensity,
             },
         })
@@ -28,8 +28,8 @@ const IntensitySlider = () => {
                 alignSelf: "center",
                 fontFamily: "AdventPro-Regular",
                 marginBottom: "3%",
-                marginTop: "3%",
-            }}>{state.intensityLevel}</Text>
+                marginTop: "0%",
+            }}>Intensitet</Text>
             <Slider
                 maximumValue={10}
                 minimumValue={0}
@@ -43,9 +43,9 @@ const IntensitySlider = () => {
                 marginBottom: 0,
                 alignSelf: "center",
                 fontFamily: "AdventPro-Regular",
-            }}>{state.state.intensityLevel}</Text>
+            }}>{store.state.intensityLevel}</Text>
         </>
     );
 };
 
-export default IntensitySlider;
+export default IntensitySliderComponent;

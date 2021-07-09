@@ -130,7 +130,7 @@ const SignupFormComponent = () => {
                 justifyContent: "center",
                 alignItems: "center",
             }}>
-                <Button size={"small"} style={styles.registerButton}
+                <Button size={"tiny"} style={styles.registerButton}
                         onPress={() => {
                             ValidateEmail();
                             ValidatePassword();

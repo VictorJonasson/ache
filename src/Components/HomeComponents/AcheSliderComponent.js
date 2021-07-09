@@ -9,7 +9,7 @@ import dizziness from "../../Assets/Images/Aches/dizziness2.png";
 
 import Context from "../../store/context";
 
-export const AcheSlider = () => {
+export const AcheSliderComponent = () => {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [selectedAche, setSelectedAche] = React.useState(0);

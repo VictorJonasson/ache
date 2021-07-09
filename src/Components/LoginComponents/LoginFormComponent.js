@@ -52,7 +52,7 @@ export default () => {
                 alignItems: "center",
                 marginTop:20
             }}>
-                <Button size={"small"} style={styles.loginButton}
+                <Button size={"tiny"} style={styles.loginButton}
                         onPress={() => onSubmit()}>
                     <Text style={{
                         elevation: 5,
